@@ -245,14 +245,14 @@ class Element extends \SimpleXMLElement
         $attributes = $this->attributes();
         if ($attributes) {
             foreach ($attributes as $key => $value) {
-                $out .= ' ' . $key . '="' . str_replace('"', '\"', (string)$value) . '"';
+                $out .= ' ' . $key . '="' . $this->xmlentities((string)$value) . '"';
             }
         }
 
         $attributes = $this->attributes('xsi', true);
         if ($attributes) {
             foreach ($attributes as $key => $value) {
-                $out .= ' xsi:' . $key . '="' . str_replace('"', '\"', (string)$value) . '"';
+                $out .= ' xsi:' . $key . '="' . $this->xmlentities((string)$value) . '"';
             }
         }
 
